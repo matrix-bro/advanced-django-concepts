@@ -3,7 +3,7 @@ from django.http import JsonResponse
 
 class RateLimitingMiddleware:
     RATE_LIMIT_DURATION = timedelta(minutes=1)
-    RATE_LIMIT_REQUESTS = 10
+    RATE_LIMIT_REQUESTS = 60
 
     def __init__(self, get_response):
         self.get_response = get_response

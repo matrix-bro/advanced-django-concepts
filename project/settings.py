@@ -131,3 +131,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # CELERY 
 CELERY_BROKER_URL = 'pyamqp://'
 CELERY_RESULT_BACKEND = 'rpc://'
+
+# Email
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

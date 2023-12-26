@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Django Concepts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="mx-4 my-4">
+      <h1 class="text-3xl">Advanced Django Concepts</h1>
+
+      <div class="mt-6 py-3 px-3 bg-gray-100 w-1/2">
+        <h2 class="text-2xl font-semibold">Contact Us</h2>
+        <form action="{% url 'send-email' %}" method="POST">
+            {% csrf_token %}
+            <div class="mt-4">
+                <p class="text-lg">Full Name</p>
+                <p><input type="text" class="w-full py-2 px-2" name="full_name" /></p>
+            </div>
+            <div class="mt-4">
+                <p class="text-lg">Email</p>
+                <p><input type="email" class="w-full py-2 px-2" name="email" /></p>
+            </div>
+            <div class="mt-4">
+                <p class="text-lg">Subject</p>
+                <p><input type="text" class="w-full py-2 px-2" name="subject" /></p>
+            </div>
+            <div class="mt-4">
+                <p class="text-lg">Message</p>
+                <textarea name="message" id="" rows="8" class="w-full px-2"></textarea>
+            </div>
+            <div class="mt-4">
+                <button class="py-3 px-3 text-xl bg-teal-400 hover:bg-teal-700">Submit</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
