@@ -15,4 +15,15 @@ def test_view(client):
 
     assert response.status_code == 200
 
-    
+
+def test_unauthorized(client):
+    url = reverse('dashboard-page')
+    response = client.get(url)
+
+    assert response.status_code == 302      # will be redirect to login page, so 302
+
+def test_admin_view(admin_client):
+    url = reverse('dashboard-page')
+    response = admin_client.get(url)
+
+    assert response.status_code == 200
