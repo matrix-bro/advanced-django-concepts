@@ -8,7 +8,7 @@ def test_user_creation():
 
     assert User.objects.count() == 1
     assert user.username == 'John'
-
+    
 def test_view(client):
     url = reverse('index-page')
     response = client.get(url)
