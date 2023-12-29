@@ -1,3 +1,4 @@
+from django.urls import reverse
 import pytest
 from django.contrib.auth.models import User
 
@@ -28,3 +29,14 @@ def test_user_create_with_custom_fixture(create_user):
     assert user != None
     assert user.username == 'shira'
 
+
+def test_auth_view(client, create_user):
+    user = create_user(username='john', password='cena')
+
+    url = reverse('profile-page')
+
+    client.login(username=user.username, password= 'cena')
+
+    response = client.get(url)
+
+    assert response.status_code == 200
