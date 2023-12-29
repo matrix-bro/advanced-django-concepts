@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.decorators import user_passes_test, login_required
 
 from app.tasks import send_email_task
 
@@ -9,6 +9,10 @@ def index(request):
 @user_passes_test(lambda u: u.is_superuser)
 def dashboard(request):
     return render(request, 'app/dashboard.html')
+
+@login_required
+def profile(request):
+    return render(request, 'app/profile.html')
 
 def send_email(request):
 
